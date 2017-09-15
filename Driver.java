@@ -39,10 +39,19 @@ public class Driver {
 
 			temp = clavier.nextLine();
 			choix = Integer.parseInt(temp);
-
+			// /////////////////////////////////////////////////////////////////////////////////////////////////////////
 			if (choix == 1) {
 				// System.out.println("Ville (1) ou Capitale (2) ?");
 				// sousChoix = clavier.nextLine().charAt(0);
+				/*
+				 * System.out.println("Nom de la ville : "); maVille =
+				 * clavier.nextLine();
+				 * 
+				 * for (Ville ville : listeVille) { if
+				 * (Ville.getMaVille().equals(maVille))
+				 * System.out.println("Ville déjà créee"); }
+				 */
+
 				System.out.println("Nom du pays : ");
 				monPays = clavier.nextLine();
 				System.out.println("Nombre habitants : ");
@@ -50,7 +59,10 @@ public class Driver {
 				nbHabitants = Integer.parseInt(temp);
 				System.out.println("Nom de la ville : ");
 				maVille = clavier.nextLine();
-
+				for (Ville ville : listeVille) {
+					if (ville.nom.equals(maVille))
+						System.out.println("Ville déjà créee");
+				}
 				System.out.println("Est ce que " + maVille
 						+ " est une capitale ? (y/n)");
 				sousChoix = clavier.nextLine().toLowerCase().charAt(0); // substring(0,
@@ -66,7 +78,7 @@ public class Driver {
 							nbHabitants, monPresident));
 					System.out.println("Capitale créée");
 				}
-
+				// //////////////////////////////////////////////////////////////////////////////////////////////////////////
 			} else if (choix == 2) {
 				for (Ville ville : listeVille) {
 					ville.affDesc();
@@ -75,7 +87,7 @@ public class Driver {
 					capitale.affDesc();
 				}
 			}
-
+			// //////////////////////////////////////////////////////////////////////////////////////////////////////////
 			else if (choix == 3) {
 				System.out.println("Les villes :");
 				for (Ville ville : listeVille) {
@@ -85,7 +97,7 @@ public class Driver {
 				for (Capitale capitale : listeCapitale) {
 					System.out.println(" - " + capitale.getNom());
 				}
-
+				// //////////////////////////////////////////////////////////////////////////////////////////////////////////
 			} else if (choix == 4) {
 				for (Ville ville : listeVille) {
 					System.out.println(ville.getPays());
@@ -93,6 +105,7 @@ public class Driver {
 			}
 			System.out.println("Voulez vous sortir si oui tapez : 5");
 			sortie = clavier.nextLine().charAt(0);
+			// //////////////////////////////////////////////////////////////////////////////////////////////////////////
 		} while (sortie != '5');
 		System.out.println("Au revoir !");
 
